@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-hello-world",
+  "name": "zachbuttram.com",
   "private": true,
-  "description": "A simplified bare-bones starter for Gatsby",
+  "description": "",
   "version": "0.1.0",
-  "license": "0BSD",
+  "license": "None",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
@@ -14,18 +14,20 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.32",
+    "@fortawesome/free-solid-svg-icons": "^5.15.1",
+    "@fortawesome/react-fontawesome": "^0.1.11",
     "gatsby": "^2.24.79",
+    "gatsby-plugin-netlify": "^2.3.20",
+    "gatsby-plugin-postcss": "^3.0.3",
+    "gatsby-plugin-react-helmet": "^3.3.14",
+    "postcss": "^8.1.1",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "react-helmet": "^6.1.0"
   },
   "devDependencies": {
-    "prettier": "2.1.2"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-hello-world"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "prettier": "2.1.2",
+    "tailwindcss": "^1.9.4"
   }
 }
