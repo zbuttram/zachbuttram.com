@@ -17,8 +17,8 @@ export default function Home() {
   return (
     <>
       <div className="container mx-auto pt-12 flex flex-col">
-        <div className="mx-auto">
-          <h1 className="text-6xl text-center font-marker bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-red-500">
+        <div className="">
+          <h1 className="text-6xl text-center font-marker italic bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-red-500">
             Zach Buttram
           </h1>
         </div>
