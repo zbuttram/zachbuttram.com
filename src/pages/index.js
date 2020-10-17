@@ -12,7 +12,7 @@ function HomeLinkOut({ href, children, icon }) {
   return (
     <a
       href={href}
-      className="my-2 mx-auto block w-3/4 py-2 bg-blue-500 rounded text-center text-pink-200 shadow uppercase font-semibold tracking-wider transition duration-300 transform hover:scale-105 hover:bg-blue-300 hover:text-pink-600"
+      className="my-2 mx-auto block w-full py-2 bg-blue-500 rounded text-center text-pink-200 shadow uppercase font-semibold tracking-wider transition duration-300 transform hover:scale-105 hover:bg-blue-300 hover:text-pink-600"
     >
       {icon && (
         <FontAwesomeIcon icon={icon} size="lg" className="ml-4 float-left" />
