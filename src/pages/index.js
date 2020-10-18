@@ -1,4 +1,5 @@
 import React from "react"
+import Helmet from "react-helmet"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
   faTwitterSquare,
@@ -8,37 +9,21 @@ import {
 
 import Me from "../img/me.jpg"
 
-function HomeLinkOut({ href, children, icon }) {
-  return (
-    <a
-      href={href}
-      className="my-2 mx-auto block w-full py-2 bg-blue-500 rounded text-center text-pink-200 shadow uppercase font-semibold tracking-wider transition duration-300 transform hover:scale-105 hover:bg-blue-300 hover:text-pink-600"
-    >
-      {icon && (
-        <FontAwesomeIcon icon={icon} size="lg" className="ml-4 float-left" />
-      )}
-      {children}
-      {icon && (
-        <FontAwesomeIcon icon={icon} size="lg" className="mr-4 float-right" />
-      )}
-    </a>
-  )
-}
-
 export default function Home() {
   return (
     <>
+      <Helmet>
+        <title>Zach Buttram</title>
+      </Helmet>
       <div className="container mx-auto pt-12 flex flex-col">
         <div className="">
-          <h1 className="text-6xl text-center font-marker italic bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-red-500">
-            Zach Buttram
-          </h1>
+          <h1 className="my-name">Zach Buttram</h1>
         </div>
-        <div className="mx-auto pt-6">
+        <div className="mx-auto pt-6 flex justify-center">
           <img
             src={Me}
             alt="Me!"
-            className="rounded-full border-8 border-blue-400 border-opacity-75 shadow-lg"
+            className="rounded-full w-3/4 border-8 border-blue-400 border-opacity-75 shadow-lg"
           />
         </div>
         <div className="mx-6 pt-12">
@@ -63,5 +48,22 @@ export default function Home() {
         </div>
       </div>
     </>
+  )
+}
+
+function HomeLinkOut({ href, children, icon }) {
+  return (
+    <a
+      href={href}
+      className="my-2 mx-auto block w-full py-2 bg-blue-500 rounded text-center text-pink-200 shadow uppercase font-semibold tracking-wider transition duration-300 transform hover:scale-105 hover:bg-blue-300 hover:text-pink-600"
+    >
+      {icon && (
+        <FontAwesomeIcon icon={icon} size="lg" className="ml-4 float-left" />
+      )}
+      {children}
+      {icon && (
+        <FontAwesomeIcon icon={icon} size="lg" className="mr-4 float-right" />
+      )}
+    </a>
   )
 }

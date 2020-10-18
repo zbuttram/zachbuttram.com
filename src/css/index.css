@@ -2,9 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Open+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Open+Sans&display=swap");
 
 body {
-  @apply bg-purple-100;
-  font-family: 'Open Sans', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  /* @apply bg-purple-100; */
+  font-family: "Open Sans", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.my-name {
+  @apply text-center font-marker italic bg-clip-text text-transparent;
+  @apply bg-gradient-to-r bg-repeat from-purple-500 via-pink-500 to-red-500;
+  font-size: 5rem;
+
+  background-size: 400% 400%;
+  animation: gradient 5s ease infinite;
+}
+
+@screen lg {
+  .my-name {
+    font-size: 8rem;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
