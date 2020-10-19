@@ -5,7 +5,9 @@
  */
 
 module.exports = {
-  /* Your site config here */
+  siteMetadata: {
+    title: "Zach Buttram",
+  },
   plugins: [
     "gatsby-plugin-postcss",
     "gatsby-plugin-netlify",
