@@ -12,9 +12,12 @@ body {
 }
 
 .my-name {
-  @apply text-center font-marker italic bg-clip-text text-transparent;
+  @apply text-center font-marker italic text-transparent;
   @apply bg-gradient-to-r bg-repeat from-purple-500 via-pink-500 to-red-500;
   font-size: 5rem;
+
+  background-clip: text;
+  -webkit-background-clip: text;
 
   background-size: 400% 400%;
   animation: gradient 5s ease infinite;
