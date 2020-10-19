@@ -27,6 +27,7 @@ body {
 @screen lg {
   .my-name {
     font-size: 8rem;
+    line-height: 8rem;
   }
 }
 

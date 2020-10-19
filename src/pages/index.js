@@ -16,7 +16,7 @@ export default function Home() {
         <title>Zach Buttram</title>
       </Helmet>
       <div className="container mx-auto pt-12 flex flex-col">
-        <div className="">
+        <div>
           <h1 className="my-name">Zach Buttram</h1>
         </div>
         <div className="mx-auto pt-6 flex justify-center">
