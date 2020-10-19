@@ -23,7 +23,7 @@ export default function Home() {
           <img
             src={Me}
             alt="Me!"
-            className="rounded-full w-3/4 border-8 border-blue-400 border-opacity-75 shadow-lg"
+            className="rounded-full w-3/4 border-8 border-blue-500 shadow-lg"
           />
         </div>
         <div className="mx-6 pt-12">
