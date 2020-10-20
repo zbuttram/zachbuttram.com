@@ -19,11 +19,11 @@ export default function Home() {
         <div>
           <h1 className="my-name">Zach Buttram</h1>
         </div>
-        <div className="mx-auto pt-6 flex justify-center">
+        <div className="mx-auto w-3/4 pt-6 flex justify-center">
           <img
             src={Me}
             alt="Me!"
-            className="rounded-full w-3/4 border-8 border-blue-500 shadow-lg"
+            className="rounded-full border-8 border-blue-500 shadow-lg"
           />
         </div>
         <div className="mx-6 pt-12">
