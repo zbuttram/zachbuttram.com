@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, Suspense } from "react"
 import Helmet from "react-helmet"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
@@ -9,6 +9,8 @@ import {
 
 import Me from "../img/me.jpg"
 
+const Three = React.lazy(() => import("../fun/three"))
+
 export default function Home() {
   return (
     <>
@@ -18,6 +20,11 @@ export default function Home() {
       <div className="container mx-auto pt-12 flex flex-col">
         <div>
           <h1 className="my-name">Zach Buttram</h1>
+        </div>
+        <div className="h-64">
+          <Suspense fallback={null}>
+            <Three></Three>
+          </Suspense>
         </div>
         <div className="mx-auto w-3/4 pt-6 flex justify-center">
           <img
