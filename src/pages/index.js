@@ -42,7 +42,7 @@ export default function Home() {
           <HomeLinkOut href="https://github.com/zbuttram" icon={faGithubSquare}>
             GitHub
           </HomeLinkOut>
-          <HomeLinkOut href="https://linkedin.com/zbuttram" icon={faLinkedin}>
+          <HomeLinkOut href="https://linkedin.com/in/zbuttram" icon={faLinkedin}>
             LinkedIn
           </HomeLinkOut>
         </div>
