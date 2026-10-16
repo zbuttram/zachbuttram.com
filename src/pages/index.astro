@@ -1,0 +1,47 @@
+---
+import { Image } from "astro:assets"
+import {
+  faLinkedin,
+  faSquareGithub,
+  faSquareTwitter,
+} from "@fortawesome/free-brands-svg-icons"
+import Base from "../layouts/Base.astro"
+import LinkOut from "../components/LinkOut.astro"
+import me from "../assets/me.jpg"
+---
+
+<Base
+  title="Zach Buttram"
+  description="Zach Buttram, software engineer specializing in web application development."
+>
+  <div class="container mx-auto flex flex-col pt-12">
+    <div>
+      <h1 class="my-name">Zach Buttram</h1>
+    </div>
+    <div class="mx-auto flex w-3/4 justify-center pt-6">
+      <Image
+        src={me}
+        alt="Me!"
+        loading="eager"
+        class="w-auto rounded-full border-8 border-blue-500 shadow-lg"
+      />
+    </div>
+    <div class="mx-6 pt-12">
+      <p class="text-center">
+        Hello! I'm a software engineer specializing in Web Application
+        Development. I don't have a SoundCloud, but check out these links!
+      </p>
+    </div>
+    <div class="mx-auto w-3/4 pt-12 md:w-1/2">
+      <LinkOut href="https://twitter.com/zbuttram" icon={faSquareTwitter}>
+        Twitter
+      </LinkOut>
+      <LinkOut href="https://github.com/zbuttram" icon={faSquareGithub}>
+        GitHub
+      </LinkOut>
+      <LinkOut href="https://linkedin.com/in/zbuttram" icon={faLinkedin}>
+        LinkedIn
+      </LinkOut>
+    </div>
+  </div>
+</Base>

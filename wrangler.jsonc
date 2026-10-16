@@ -1,0 +1,10 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "zachbuttram-com",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./dist",
+  },
+  // Required by `wrangler preview`, which Workers Builds runs for PR previews
+  "previews": {},
+}
