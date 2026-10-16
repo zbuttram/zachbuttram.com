@@ -5,4 +5,6 @@
   "assets": {
     "directory": "./dist",
   },
+  // Required by `wrangler preview`, which Workers Builds runs for PR previews
+  "previews": {},
 }
