@@ -56,7 +56,10 @@ typings/
 
 # Astro files
 .astro/
-public
+dist/
+
+# Wrangler files
+.wrangler/
 
 # Mac files
 .DS_Store
