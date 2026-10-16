@@ -1,5 +1,4 @@
 import React from "react"
-import Helmet from "react-helmet"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
   faTwitterSquare,
@@ -11,44 +10,40 @@ import Me from "../img/me.jpg"
 
 export default function Home() {
   return (
-    <>
-      <Helmet>
-        <title>Zach Buttram</title>
-      </Helmet>
-      <div className="container mx-auto pt-12 flex flex-col">
-        <div>
-          <h1 className="my-name">Zach Buttram</h1>
-        </div>
-        <div className="mx-auto w-3/4 pt-6 flex justify-center">
-          <img
-            src={Me}
-            alt="Me!"
-            className="rounded-full border-8 border-blue-500 shadow-lg"
-          />
-        </div>
-        <div className="mx-6 pt-12">
-          <p className="text-center">
-            Hello! I'm a software engineer specializing in Web Application
-            Development. I don't have a SoundCloud, but check out these links!
-          </p>
-        </div>
-        <div className="mx-auto w-3/4 md:w-1/2 pt-12">
-          <HomeLinkOut
-            href="https://twitter.com/zbuttram"
-            icon={faTwitterSquare}
-          >
-            Twitter
-          </HomeLinkOut>
-          <HomeLinkOut href="https://github.com/zbuttram" icon={faGithubSquare}>
-            GitHub
-          </HomeLinkOut>
-          <HomeLinkOut href="https://linkedin.com/in/zbuttram" icon={faLinkedin}>
-            LinkedIn
-          </HomeLinkOut>
-        </div>
+    <div className="container mx-auto pt-12 flex flex-col">
+      <div>
+        <h1 className="my-name">Zach Buttram</h1>
       </div>
-    </>
+      <div className="mx-auto w-3/4 pt-6 flex justify-center">
+        <img
+          src={Me}
+          alt="Me!"
+          className="rounded-full border-8 border-blue-500 shadow-lg"
+        />
+      </div>
+      <div className="mx-6 pt-12">
+        <p className="text-center">
+          Hello! I'm a software engineer specializing in Web Application
+          Development. I don't have a SoundCloud, but check out these links!
+        </p>
+      </div>
+      <div className="mx-auto w-3/4 md:w-1/2 pt-12">
+        <HomeLinkOut href="https://twitter.com/zbuttram" icon={faTwitterSquare}>
+          Twitter
+        </HomeLinkOut>
+        <HomeLinkOut href="https://github.com/zbuttram" icon={faGithubSquare}>
+          GitHub
+        </HomeLinkOut>
+        <HomeLinkOut href="https://linkedin.com/in/zbuttram" icon={faLinkedin}>
+          LinkedIn
+        </HomeLinkOut>
+      </div>
+    </div>
   )
+}
+
+export function Head() {
+  return <title>Zach Buttram</title>
 }
 
 function HomeLinkOut({ href, children, icon }) {
