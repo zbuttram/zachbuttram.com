@@ -1,0 +1,22 @@
+---
+import { icon as renderIcon } from "@fortawesome/fontawesome-svg-core"
+import type { IconDefinition } from "@fortawesome/fontawesome-svg-core"
+
+interface Props {
+  href: string
+  icon: IconDefinition
+}
+
+const { href, icon } = Astro.props
+const svg = (className: string) =>
+  renderIcon(icon, { classes: ["fa-lg", className] }).html.join("")
+---
+
+<a
+  href={href}
+  class="mx-auto my-2 block w-full rounded-sm bg-blue-500 py-2 text-center font-semibold tracking-wider text-pink-200 uppercase shadow-sm transition duration-300 hover:scale-105 hover:bg-blue-300 hover:text-pink-600"
+>
+  <Fragment set:html={svg("ml-4 float-left")} />
+  <slot />
+  <Fragment set:html={svg("mr-4 float-right")} />
+</a>

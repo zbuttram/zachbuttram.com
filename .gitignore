@@ -54,8 +54,8 @@ typings/
 # dotenv environment variable files
 .env*
 
-# gatsby files
-.cache/
+# Astro files
+.astro/
 public
 
 # Mac files
