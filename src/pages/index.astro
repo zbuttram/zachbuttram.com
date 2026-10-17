@@ -1,10 +1,6 @@
 ---
 import { Image } from "astro:assets"
-import {
-  faLinkedin,
-  faSquareGithub,
-  faSquareTwitter,
-} from "@fortawesome/free-brands-svg-icons"
+import { faLinkedin, faSquareGithub } from "@fortawesome/free-brands-svg-icons"
 import Base from "../layouts/Base.astro"
 import LinkOut from "../components/LinkOut.astro"
 import me from "../assets/me.jpg"
@@ -14,34 +10,40 @@ import me from "../assets/me.jpg"
   title="Zach Buttram"
   description="Zach Buttram, software engineer specializing in web application development."
 >
-  <div class="container mx-auto flex flex-col pt-12">
-    <div>
-      <h1 class="my-name">Zach Buttram</h1>
-    </div>
-    <div class="mx-auto flex w-3/4 justify-center pt-6">
-      <Image
-        src={me}
-        alt="Me!"
-        loading="eager"
-        class="w-auto rounded-full border-8 border-blue-500 shadow-lg"
-      />
-    </div>
-    <div class="mx-6 pt-12">
-      <p class="text-center">
-        Hello! I'm a software engineer specializing in Web Application
-        Development. I don't have a SoundCloud, but check out these links!
-      </p>
-    </div>
-    <div class="mx-auto w-3/4 pt-12 md:w-1/2">
-      <LinkOut href="https://twitter.com/zbuttram" icon={faSquareTwitter}>
-        Twitter
-      </LinkOut>
+  <div class="mx-auto flex min-h-dvh max-w-3xl flex-col items-center px-4 pt-10 pb-[38vh] md:pt-16">
+    <h1 class="my-name" data-text="Zach Buttram">
+      Zach Buttram
+    </h1>
+    <p class="aurebesh" aria-hidden="true">
+      Zach Buttram
+    </p>
+
+    <figure class="retro-window mt-10 w-64 md:w-72">
+      <figcaption class="retro-window-bar">
+        <span>me.jpg</span>
+        <span class="retro-window-buttons" aria-hidden="true">
+          <span>_</span>
+          <span>□</span>
+          <span>×</span>
+        </span>
+      </figcaption>
+      <div class="retro-window-body">
+        <Image
+          src={me}
+          alt="Zach Buttram"
+          loading="eager"
+          class="block aspect-square w-full object-cover"
+        />
+      </div>
+    </figure>
+
+    <nav class="mt-10 flex w-full max-w-sm flex-col gap-4">
       <LinkOut href="https://github.com/zbuttram" icon={faSquareGithub}>
         GitHub
       </LinkOut>
       <LinkOut href="https://linkedin.com/in/zbuttram" icon={faLinkedin}>
         LinkedIn
       </LinkOut>
-    </div>
+    </nav>
   </div>
 </Base>

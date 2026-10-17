@@ -1,6 +1,7 @@
 ---
 import "@fortawesome/fontawesome-svg-core/styles.css"
 import "../styles/global.css"
+import Starfield from "../components/Starfield.astro"
 
 interface Props {
   title: string
@@ -15,11 +16,22 @@ const { title, description } = Astro.props
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#12002b" />
+    <!-- The site is dark-only; tell browsers and Dark Reader not to re-theme it. -->
+    <meta name="color-scheme" content="dark" />
+    <meta name="darkreader-lock" />
     <link rel="icon" href="/favicon.ico" />
     {description && <meta name="description" content={description} />}
     <title>{title}</title>
   </head>
-  <body>
-    <slot />
+  <body class="isolate min-h-dvh">
+    <Starfield />
+    <div class="scenery" aria-hidden="true">
+      <div class="sun"></div>
+      <div class="grid-floor"></div>
+    </div>
+    <main class="relative">
+      <slot />
+    </main>
   </body>
 </html>

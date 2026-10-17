@@ -1,51 +1,285 @@
-@import "@fontsource/open-sans/400.css";
-@import "@fontsource/open-sans/600.css";
-@import "@fontsource/permanent-marker/400.css";
+@import "@fontsource/space-grotesk/400.css";
+@import "@fontsource/space-grotesk/600.css";
+@import "@fontsource/monoton/400.css";
+@import "@fontsource/vt323/400.css";
 @import "tailwindcss";
+
+/* Aurebesh AF by AurekFonts, CC0 public domain. */
+@font-face {
+  font-family: "Aurebesh AF";
+  src: url("../assets/fonts/AurebeshAF-Canon.woff2") format("woff2");
+  font-display: swap;
+}
 
 @theme {
   --font-sans:
-    "Open Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-marker: "Permanent Marker", cursive;
+    "Space Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --font-display: "Monoton", "Space Grotesk", sans-serif;
+  --font-terminal: "VT323", ui-monospace, monospace;
+  --font-aurebesh: "Aurebesh AF", ui-monospace, monospace;
 
-  /* Tailwind v1 palette values, to keep the original look */
-  --color-blue-300: #90cdf4;
-  --color-blue-500: #4299e1;
-  --color-pink-200: #fed7e2;
-  --color-pink-500: #ed64a6;
-  --color-pink-600: #d53f8c;
-  --color-purple-500: #9f7aea;
-  --color-red-500: #f56565;
+  --color-void: #07000f;
+  --color-night: #12002b;
+  --color-dusk: #4a0b5c;
+  --color-neon-pink: #ff71ce;
+  --color-neon-cyan: #01cdfe;
+  --color-ice: #9ff6ff;
+  --color-violet: #b967ff;
+  --color-lemon: #fffb96;
+  --color-silver: #c0c0c0;
 }
 
+html {
+  color-scheme: dark;
+}
+
+body {
+  @apply font-sans text-[#f5e9ff];
+  background: linear-gradient(
+    to bottom,
+    var(--color-void) 0%,
+    var(--color-night) 45%,
+    var(--color-dusk) 68%,
+    var(--color-night) 100%
+  );
+  background-attachment: fixed;
+}
+
+/* ---------- Name ---------- */
+
+/*
+ * Plain hex gradient with prefixed clip + fill properties: the old version
+ * relied on Tailwind's @property gradient variables, which Safari can render
+ * as fully transparent text. The glow lives on a pseudo-element underneath so
+ * no shadow or filter touches the clipped text itself.
+ */
 .my-name {
-  @apply text-center font-marker text-transparent italic;
-  @apply bg-linear-to-r from-purple-500 via-pink-500 to-red-500 bg-repeat;
-  font-size: 5rem;
-  line-height: 5rem;
+  position: relative;
+  isolation: isolate;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.5rem, 11vw, 6.5rem);
+  line-height: 1.1;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--color-neon-pink);
 
-  background-clip: text;
-  -webkit-background-clip: text;
+  @supports (background-clip: text) or (-webkit-background-clip: text) {
+    background-image: linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #9ff6ff 22%,
+      #ffffff 40%,
+      #ff71ce 58%,
+      #b967ff 78%,
+      #fffb96 100%
+    );
+    background-size: 100% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: chrome-shimmer 6s ease-in-out infinite alternate;
+  }
 
-  background-size: 400% 400%;
-  animation: gradient 5s ease infinite;
-
-  @variant lg {
-    font-size: 8rem;
-    line-height: 8rem;
+  &::before {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: none;
+    -webkit-text-fill-color: rgb(255 113 206 / 0.15);
+    color: rgb(255 113 206 / 0.15);
+    text-shadow:
+      0 0 12px #ff71ce,
+      0 0 32px #b967ff,
+      0 0 64px #01cdfe;
   }
 }
 
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
+@keyframes chrome-shimmer {
+  from {
+    background-position: 50% 0%;
   }
+  to {
+    background-position: 50% 100%;
+  }
+}
+
+.aurebesh {
+  @apply mt-2 text-center font-aurebesh text-xl tracking-[0.4em] lowercase md:text-2xl;
+  color: var(--color-neon-pink);
+  text-shadow:
+    0 0 3px var(--color-night),
+    0 0 10px rgb(255 113 206 / 0.8);
+}
+
+/* ---------- Photo window ---------- */
+
+.retro-window {
+  @apply bg-silver p-1 text-black;
+  border: 2px solid;
+  border-color: #fff #404040 #404040 #fff;
+  box-shadow:
+    0 0 0 1px #000,
+    0 0 40px rgb(1 205 254 / 0.45),
+    0 0 90px rgb(255 113 206 / 0.3);
+  transform: rotate(-2deg);
+  transition: transform 300ms ease;
+
+  &:hover {
+    transform: rotate(0deg) scale(1.03);
+  }
+}
+
+.retro-window-bar {
+  @apply flex items-center justify-between px-2 py-1 font-terminal text-xl leading-none text-white;
+  background: linear-gradient(90deg, #ff71ce, #b967ff 55%, #01cdfe);
+}
+
+.retro-window-buttons {
+  @apply flex gap-1;
+
+  span {
+    @apply grid size-5 place-items-center bg-silver text-base leading-none text-black;
+    border: 1px solid;
+    border-color: #fff #404040 #404040 #fff;
+  }
+}
+
+.retro-window-body {
+  @apply mt-1;
+  border: 2px solid;
+  border-color: #404040 #fff #fff #404040;
+}
+
+/* ---------- Links ---------- */
+
+.neon-link {
+  @apply flex items-center gap-4 px-5 py-2 font-terminal text-3xl tracking-widest uppercase backdrop-blur-sm;
+  color: var(--color-ice);
+  background: rgb(18 0 43 / 0.6);
+  border: 2px solid var(--color-neon-cyan);
+  box-shadow:
+    0 0 10px rgb(1 205 254 / 0.6),
+    inset 0 0 10px rgb(1 205 254 / 0.35);
+  text-shadow: 0 0 8px rgb(1 205 254 / 0.9);
+  transition:
+    color 200ms,
+    border-color 200ms,
+    box-shadow 200ms,
+    transform 200ms;
+
+  &:hover,
+  &:focus-visible {
+    color: #ffe3f6;
+    border-color: var(--color-neon-pink);
+    box-shadow:
+      0 0 18px rgb(255 113 206 / 0.8),
+      inset 0 0 14px rgb(255 113 206 / 0.45);
+    text-shadow: 0 0 8px rgb(255 113 206 / 0.9);
+    transform: translateX(4px);
+    outline: none;
+  }
+}
+
+.neon-link-arrow {
+  @apply ml-auto text-xl opacity-0 transition-opacity;
+
+  .neon-link:hover &,
+  .neon-link:focus-visible & {
+    @apply opacity-100;
+    animation: blink 1s steps(1) infinite;
+  }
+}
+
+@keyframes blink {
   50% {
-    background-position: 100% 50%;
+    opacity: 0;
   }
-  100% {
-    background-position: 0% 50%;
+}
+
+/* ---------- Sun + grid scenery ---------- */
+
+.scenery {
+  @apply pointer-events-none fixed inset-x-0 bottom-0 -z-[5] h-[34vh];
+}
+
+.sun {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  width: min(84vw, 480px);
+  aspect-ratio: 1;
+  translate: -50% 25%;
+  border-radius: 50%;
+  background: linear-gradient(
+    to bottom,
+    #fffb96 0%,
+    #ff9a5a 35%,
+    #ff3f9a 70%,
+    #b967ff 100%
+  );
+  box-shadow: 0 0 80px rgb(255 113 206 / 0.55);
+  mask-image: linear-gradient(
+    to bottom,
+    #000 0 40%,
+    transparent 40% 42%,
+    #000 42% 48%,
+    transparent 48% 51%,
+    #000 51% 56%,
+    transparent 56% 60%,
+    #000 60% 64%,
+    transparent 64% 69%,
+    #000 69%
+  );
+}
+
+.grid-floor {
+  @apply absolute inset-0 overflow-hidden;
+  perspective: 260px;
+  perspective-origin: 50% 0%;
+  background: linear-gradient(to bottom, #2a0040, var(--color-void));
+  border-top: 2px solid var(--color-neon-pink);
+  box-shadow: 0 -6px 30px rgb(255 113 206 / 0.7);
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: -150%;
+    right: -150%;
+    top: 0;
+    height: 300%;
+    transform-origin: 50% 0%;
+    transform: rotateX(78deg);
+    background-image:
+      linear-gradient(to bottom, var(--color-neon-pink) 2px, transparent 2px),
+      linear-gradient(to right, var(--color-neon-pink) 2px, transparent 2px);
+    background-size: 64px 64px;
+    background-position: 50% 0;
+    animation: grid-scroll 0.9s linear infinite;
+  }
+
+  /* Fade the far lines into the horizon haze. */
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, #2a0040 0%, transparent 45%);
+  }
+}
+
+@keyframes grid-scroll {
+  to {
+    background-position: 50% 64px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .my-name,
+  .grid-floor::before,
+  .neon-link-arrow {
+    animation: none !important;
   }
 }
